@@ -1,0 +1,657 @@
+/* ==========================================================================
+   GroupMobile.css - Mobile Group View (Expenses & Balances - Pictures 2 & 4)
+   ========================================================================== */
+
+.as-grp-mob-wrap {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 90px;
+  position: relative;
+}
+
+.as-grp-mob-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 1. Mobile Top Header Bar */
+.as-grp-mob-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2px;
+}
+
+.as-grp-mob-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-grp-mob-back-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #0f172a;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.as-grp-mob-heading {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.as-grp-mob-subheading {
+  font-size: 11.5px;
+  color: #64748b;
+  margin: 1px 0 0 0;
+}
+
+.as-grp-mob-user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0f111a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* 2. Tabs Row */
+.as-grp-mob-tabs-row {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.as-grp-mob-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.as-grp-mob-tab-btn.active {
+  background: #191632;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(25, 22, 50, 0.2);
+}
+
+.as-grp-mob-tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+/* ==========================================================================
+   MOBILE EXPENSES TAB (Matches Picture 2)
+   ========================================================================== */
+
+/* Voice Shortcut Hint Card */
+.as-grp-mob-hint-card {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.as-grp-mob-hint-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.as-grp-mob-hint-title {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-grp-mob-hint-text {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* Section Header */
+.as-grp-mob-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.as-grp-mob-section-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-grp-mob-section-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Activity Cards List */
+.as-grp-mob-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.as-grp-mob-expense-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.as-grp-mob-exp-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.as-grp-mob-initials-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 13.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.as-grp-mob-exp-info {
+  min-width: 0;
+}
+
+.as-grp-mob-exp-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-grp-mob-exp-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.as-grp-mob-voice-tag {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.as-grp-mob-exp-payer {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.as-grp-mob-exp-right-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.as-grp-mob-exp-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.as-grp-mob-expense-delete-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.as-grp-mob-expense-delete-btn:active {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #dc2626;
+  transform: scale(0.92);
+}
+
+/* Danger Zone for Mobile Members Tab */
+.as-grp-mob-danger-zone {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.as-grp-mob-danger-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.as-grp-mob-danger-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #dc2626;
+}
+
+.as-grp-mob-danger-desc {
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+.as-grp-mob-btn-delete-group {
+  align-self: flex-start;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.as-grp-mob-btn-delete-group:active {
+  background: #fee2e2;
+  transform: scale(0.96);
+}
+
+.as-grp-mob-exp-amt {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-grp-mob-exp-share-get {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #16a34a;
+  margin-top: 2px;
+}
+
+.as-grp-mob-exp-share-owe {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #dc2626;
+  margin-top: 2px;
+}
+
+/* Settled Card (Mobile) */
+.as-grp-mob-settled-card {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  border-radius: 18px;
+  padding: 13px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-grp-mob-settled-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.as-grp-mob-settled-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.as-grp-mob-settled-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-grp-mob-settled-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+.as-grp-mob-settled-badge {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   MOBILE BALANCES TAB (Matches Picture 4)
+   ========================================================================== */
+
+/* Hinglish Summary Banner */
+.as-grp-mob-hinglish-banner {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.as-grp-mob-hinglish-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-grp-mob-speaker-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.as-grp-mob-hinglish-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-grp-mob-hinglish-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1px;
+}
+
+.as-grp-mob-btn-read-aloud {
+  background: #191632;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 8px rgba(25, 22, 50, 0.2);
+}
+
+.as-grp-mob-play-icon {
+  color: #f59e0b;
+  font-size: 11px;
+}
+
+/* Who Owes Whom Card (Mobile) */
+.as-grp-mob-card-block {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.as-grp-mob-transfer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.as-grp-mob-transfer-item:last-child {
+  border-bottom: none;
+}
+
+.as-grp-mob-transfer-names {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-grp-mob-trans-arrow {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.as-grp-mob-transfer-price {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* Your Balances Cards (Mobile) */
+.as-grp-mob-your-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.as-grp-mob-your-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.as-grp-mob-your-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-grp-mob-your-status {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.as-grp-mob-your-status.green {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.as-grp-mob-your-status.red {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.as-grp-mob-your-status.gray {
+  color: #64748b;
+}
+
+.as-grp-mob-btn-settle-peach {
+  background: #fef3c7;
+  color: #b45309;
+  border: none;
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.as-grp-mob-btn-settle-peach:hover {
+  background: #fde68a;
+}
+
+.as-grp-mob-btn-settle-dark {
+  background: #191632;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.as-grp-mob-settled-chip {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11.5px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* All Balances Cleared Banner (Condition from User) */
+.as-grp-mob-all-settled-box {
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* Floating Circular Mic Button */
+.as-grp-mob-floating-mic {
+  position: fixed;
+  bottom: 22px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #0f111a;
+  color: #f59e0b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.15s ease;
+}
+
+.as-grp-mob-floating-mic:active {
+  transform: scale(0.95);
+}
+

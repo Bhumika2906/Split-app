@@ -1,0 +1,550 @@
+/* ==========================================================================
+   CreateGroupModal.css - Desktop "Create New Group" Modal (Matches Image 1)
+   ========================================================================== */
+
+.as-cgm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1250;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: asCgmFadeIn 0.2s ease-out;
+}
+
+@keyframes asCgmFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.as-cgm-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 28px 32px 28px 32px;
+  animation: asCgmScaleUp 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+}
+
+@keyframes asCgmScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Golden Accent Top Line */
+.as-cgm-accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #ea580c 100%);
+}
+
+/* Close Button in Top Right */
+.as-cgm-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Top Badge Row */
+.as-cgm-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.as-cgm-pill-tag {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.as-cgm-instant-split-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Title & Subtitle */
+.as-cgm-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.as-cgm-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+/* Field Group */
+.as-cgm-field-group {
+  margin-bottom: 16px;
+}
+
+.as-cgm-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 7px;
+}
+
+/* Group Name Input Container */
+.as-cgm-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 4px 14px;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-input-wrap:focus-within {
+  border-color: #f59e0b;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+.as-cgm-name-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 10px 4px;
+  font-family: inherit;
+}
+
+.as-cgm-name-input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.as-cgm-quick-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-cgm-icon-pill {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.as-cgm-icon-pill:hover {
+  transform: scale(1.1);
+  border-color: #f59e0b;
+}
+
+/* Two Columns: Currency & Category */
+.as-cgm-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.as-cgm-select-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+
+.as-cgm-select-box:hover {
+  border-color: #cbd5e1;
+}
+
+.as-cgm-select-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-cgm-currency-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-cgm-caret {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* Add Members Section */
+.as-cgm-members-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.as-cgm-members-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.as-cgm-add-input-bar {
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 4px 6px 4px 14px;
+  margin-bottom: 12px;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-add-input-bar:focus-within {
+  border-color: #f59e0b;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+.as-cgm-member-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13.5px;
+  color: #0f172a;
+  padding: 8px 0;
+  font-family: inherit;
+}
+
+.as-cgm-member-input::placeholder {
+  color: #94a3b8;
+}
+
+.as-cgm-btn-add {
+  background: #f59e0b;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.as-cgm-btn-add:hover {
+  background: #d97706;
+}
+
+.as-cgm-btn-add:active {
+  transform: scale(0.96);
+}
+
+/* Members Tag Chips */
+.as-cgm-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.as-cgm-chip-you {
+  background: #191632;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 5px 12px 5px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.as-cgm-chip-you-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-cgm-chip-lock {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.as-cgm-chip {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-radius: 9999px;
+  padding: 5px 10px 5px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.as-cgm-chip-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-cgm-chip-remove {
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-cgm-chip-remove:hover {
+  color: #dc2626;
+}
+
+/* Invite Link Access Box */
+.as-cgm-invite-card {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 12px;
+}
+
+.as-cgm-invite-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.as-cgm-invite-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.as-cgm-invite-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-cgm-invite-url {
+  font-size: 11.5px;
+  color: #64748b;
+  font-family: monospace;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-cgm-invite-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.as-cgm-btn-copy {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-btn-copy:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Toggle Switch */
+.as-cgm-toggle {
+  width: 38px;
+  height: 22px;
+  background: #f59e0b;
+  border-radius: 9999px;
+  padding: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease;
+  border: none;
+}
+
+.as-cgm-toggle.off {
+  background: #cbd5e1;
+}
+
+.as-cgm-toggle-knob {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  transform: translateX(16px);
+}
+
+.as-cgm-toggle.off .as-cgm-toggle-knob {
+  transform: translateX(0);
+}
+
+/* Footer Action Buttons */
+.as-cgm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.as-cgm-btn-cancel {
+  background: transparent;
+  border: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: color 0.15s ease;
+}
+
+.as-cgm-btn-cancel:hover {
+  color: #0f172a;
+}
+
+.as-cgm-btn-create {
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(15, 17, 26, 0.25);
+  transition: all 0.15s ease;
+}
+
+.as-cgm-btn-create:hover {
+  background: #1e2230;
+}
+
+.as-cgm-btn-create:active {
+  transform: scale(0.98);
+}
+

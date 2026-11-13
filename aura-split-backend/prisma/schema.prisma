@@ -1,0 +1,127 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SplitType {
+  EQUAL
+  EXACT
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  readoutLang  String   @default("hinglish")
+  createdAt    DateTime @default(now())
+
+  groupsCreated   Group[]
+  members         Member[]
+  expensesCreated Expense[]
+  paymentsCreated Payment[]
+  voiceLogs       VoiceLog[]
+}
+
+model Group {
+  id          String   @id @default(cuid())
+  name        String
+  isPersonal  Boolean  @default(false)
+  createdById String
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdAt   DateTime @default(now())
+
+  members   Member[]
+  expenses  Expense[]
+  payments  Payment[]
+  voiceLogs VoiceLog[]
+}
+
+// A "person in a group". userId is null for placeholders (not joined yet).
+model Member {
+  id          String   @id @default(cuid())
+  groupId     String
+  group       Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  displayName String
+  aliases     String[]
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  inviteToken String?  @unique
+  createdAt   DateTime @default(now())
+
+  paidExpenses     Expense[]      @relation("ExpensePayer")
+  shares           ExpenseShare[]
+  paymentsSent     Payment[]      @relation("PaymentFrom")
+  paymentsReceived Payment[]      @relation("PaymentTo")
+
+  @@unique([groupId, userId])
+  @@index([groupId])
+}
+
+// All money is stored as integer paise (Rs 800 = 80000).
+model Expense {
+  id          String    @id @default(cuid())
+  groupId     String
+  group       Group     @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  description String
+  amountPaise Int
+  paidById    String
+  paidBy      Member    @relation("ExpensePayer", fields: [paidById], references: [id])
+  splitType   SplitType @default(EQUAL)
+  transcript  String?
+  createdById String
+  createdBy   User      @relation(fields: [createdById], references: [id])
+  createdAt   DateTime  @default(now())
+  deletedAt   DateTime?
+
+  shares ExpenseShare[]
+
+  @@index([groupId, deletedAt])
+}
+
+model ExpenseShare {
+  id         String  @id @default(cuid())
+  expenseId  String
+  expense    Expense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+  memberId   String
+  member     Member  @relation(fields: [memberId], references: [id])
+  sharePaise Int
+
+  @@unique([expenseId, memberId])
+}
+
+// A recorded settlement: "Priya paid Rahul Rs 300".
+model Payment {
+  id           String    @id @default(cuid())
+  groupId      String
+  group        Group     @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  fromMemberId String
+  fromMember   Member    @relation("PaymentFrom", fields: [fromMemberId], references: [id])
+  toMemberId   String
+  toMember     Member    @relation("PaymentTo", fields: [toMemberId], references: [id])
+  amountPaise  Int
+  createdById  String
+  createdBy    User      @relation(fields: [createdById], references: [id])
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  @@index([groupId, deletedAt])
+}
+
+model VoiceLog {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  groupId    String?
+  group      Group?   @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  transcript String
+  language   String?
+  intent     String?
+  parsedJson Json?
+  confirmed  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}

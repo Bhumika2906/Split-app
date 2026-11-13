@@ -1,0 +1,769 @@
+/* ==========================================================================
+   QueryResponse.css - Voice Balance Query Response
+   Desktop: Matches Picture 2 (Centered modal with golden top accent & ledger items)
+   Mobile: Matches Picture 1 (Slide-up sheet with breakdown toggle & settle action)
+   ========================================================================== */
+
+.as-query-container {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Modal Layout
+   -------------------------------------------------------------------------- */
+.as-query-modal-desktop {
+  display: block;
+}
+
+.as-query-sheet-mobile {
+  display: none;
+}
+
+@media (max-width: 699px) {
+  .as-query-modal-desktop {
+    display: none !important;
+  }
+  .as-query-sheet-mobile {
+    display: block !important;
+  }
+}
+
+/* Golden Accent Line on Desktop */
+.as-query-desktop-accent {
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #ea580c 100%);
+  border-radius: 9999px 9999px 0 0;
+  margin: -24px -28px 18px -28px;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Header
+   -------------------------------------------------------------------------- */
+.as-query-header-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.as-query-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.as-query-mic-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.as-query-heading-desktop {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-query-subhead-dot {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.as-query-subhead-text {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.as-query-nlu-pill {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 3px 8px;
+  letter-spacing: 0.04em;
+}
+
+.as-query-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s ease;
+}
+
+.as-query-close-btn:hover {
+  background: #e2e8f0;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Recognized Utterance Bar
+   -------------------------------------------------------------------------- */
+.as-query-recognized-bar {
+  background: #f1f5f9;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.as-query-rec-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.as-query-rec-text {
+  font-style: italic;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* --------------------------------------------------------------------------
+   Direct Response Card (Desktop)
+   -------------------------------------------------------------------------- */
+.as-query-direct-card {
+  background: linear-gradient(135deg, #ffffff 65%, #fffbeb 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.06);
+}
+
+.as-query-direct-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.as-query-direct-statement {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 14px 0;
+  line-height: 1.35;
+}
+
+.as-query-amount-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.as-query-amount-left {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.as-query-amount-val {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.as-query-amount-currency {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.as-query-owe-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 9999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Desktop Audio Bar */
+.as-query-audio-bar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.as-query-audio-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.as-query-speaker-icon-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.as-query-mini-equalizer {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+
+.as-query-mini-equalizer span {
+  width: 3px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   Expense Ledger Breakdown List (Desktop & Mobile)
+   -------------------------------------------------------------------------- */
+.as-query-ledger-wrap {
+  margin-bottom: 18px;
+}
+
+.as-query-ledger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-query-ledger-unsettled {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.as-query-ledger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.as-query-ledger-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.15s ease;
+}
+
+.as-query-ledger-card:hover {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.as-query-ledger-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-query-ledger-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.as-query-ledger-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-query-ledger-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.as-query-ledger-right {
+  text-align: right;
+}
+
+.as-query-ledger-amount {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-query-ledger-share-tag {
+  font-size: 11px;
+  color: #dc2626;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop Footer Actions
+   -------------------------------------------------------------------------- */
+.as-query-footer-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 10px;
+}
+
+.as-query-btn-close {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.as-query-btn-close:hover {
+  background: #e2e8f0;
+}
+
+.as-query-btn-ask-again {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+}
+
+.as-query-btn-ask-again:hover {
+  background: #f8fafc;
+}
+
+.as-query-btn-settle-dark {
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(15, 17, 26, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.as-query-btn-settle-dark:hover {
+  background: #1e2230;
+}
+
+.as-query-btn-settle-dark:active {
+  transform: scale(0.98);
+}
+
+.as-query-brand-note {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  margin: 12px 0 0 0;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   MOBILE LAYOUT (Matches Picture 1)
+   ========================================================================== */
+
+/* Top Drag Bar */
+.as-query-mob-drag {
+  width: 42px;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  margin: 0 auto 12px auto;
+}
+
+/* Mobile Header Row */
+.as-query-mob-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.as-query-mob-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-query-pill-balance {
+  background: #f1f5f9;
+  color: #334155;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.as-query-pill-hinglish {
+  background: #ede9fe;
+  color: #6b21a8;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* You Asked Card */
+.as-query-you-asked-card {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 16px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.as-query-you-asked-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.as-query-speaker-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.as-query-asked-tag {
+  font-size: 10.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.as-query-asked-quote {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+.as-query-understood-pill {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Mobile AI Voice Response Card */
+.as-query-mob-response-card {
+  background: linear-gradient(135deg, #ffffff 60%, #fff7ed 100%);
+  border: 1px solid #fed7aa;
+  border-radius: 20px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.05);
+}
+
+.as-query-mob-resp-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.as-query-ai-voice-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.as-query-audio-pill-mob {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 9999px;
+  padding: 3px 9px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #b45309;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.as-query-mob-spoken-answer {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 4px 0;
+}
+
+.as-query-mob-spoken-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0 0 14px 0;
+}
+
+/* Mobile Balance Due Section */
+.as-query-mob-balance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(226, 232, 240, 0.85);
+}
+
+.as-query-mob-person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.as-query-mob-person-avatar-wrap {
+  position: relative;
+}
+
+.as-query-mob-person-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.as-query-online-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f59e0b;
+  border: 2px solid #ffffff;
+}
+
+.as-query-due-tag {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #dc2626;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.as-query-person-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1px;
+}
+
+.as-query-mob-amount-block {
+  text-align: right;
+}
+
+.as-query-mob-amount-red {
+  font-size: 26px;
+  font-weight: 900;
+  color: #dc2626;
+  letter-spacing: -0.02em;
+}
+
+.as-query-mob-net-owed {
+  font-size: 10.5px;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+/* Context / Source Info Box */
+.as-query-mob-context-box {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  margin-bottom: 12px;
+}
+
+.as-query-context-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.as-query-context-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-query-context-desc {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+/* Mobile Actions Row */
+.as-query-mob-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  box-sizing: border-box;
+}
+
+.as-query-btn-breakdown-toggle {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 16px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.as-query-btn-settle-mob {
+  flex: 1;
+  min-width: 0;
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(15, 17, 26, 0.25);
+  white-space: nowrap;
+}
+

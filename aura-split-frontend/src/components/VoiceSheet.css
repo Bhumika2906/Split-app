@@ -1,0 +1,1531 @@
+/* ==========================================================================
+   VoiceSheet Styles - Aura Split
+   Exact match to Image 2 with concentric pulsing mic & animated equalizer
+   - Fits all 3 buttons on screen with NO horizontal overflow
+   - Fits viewport with NO vertical scroll
+   - Overlay z-index 1200 keeps it strictly above bottom nav
+   ========================================================================== */
+
+.as-voice-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(15, 23, 42, 0.65) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  z-index: 1200 !important; /* Higher than mob-bottom-nav (z-index: 300) */
+  animation: fadeIn 0.2s ease-out;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.as-voice-sheet {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  max-height: 92vh;
+  overflow-x: hidden;
+  overflow-y: hidden; /* No scroll on listening modal! */
+  border-radius: 28px 28px 0 0;
+  padding: 12px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1201 !important;
+}
+
+/* Allow scrolling only when viewing long forms/results */
+.as-voice-sheet.as-sheet-scrollable {
+  overflow-y: auto;
+}
+
+@media (max-width: 699px) {
+  .as-voice-sheet {
+    padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+  }
+}
+
+@media (min-width: 700px) {
+  .as-voice-overlay {
+    align-items: center !important;
+    padding: 20px !important;
+  }
+  .as-voice-sheet {
+    border-radius: 28px;
+    padding: 18px 24px 24px;
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Top Drag Bar */
+.as-sheet-drag-handle {
+  width: 40px;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  margin: 0 auto 10px auto;
+  flex-shrink: 0;
+}
+
+/* Header with Badges */
+.as-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.as-badge-hinglish {
+  background: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.as-badge-timer {
+  background: #f1f5f9;
+  color: #1e293b;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-timer-yellow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   CONCENTRIC PULSING MICROPHONE SPHERE (Fitting viewport with no scroll)
+   -------------------------------------------------------------------------- */
+.as-mic-sphere-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Outer ambient radar ripple */
+.as-mic-radar-ripple {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(249, 115, 22, 0.20);
+  animation: radarPing 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes radarPing {
+  75%, 100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* Middle glowing pulse ring */
+.as-mic-glow-ring {
+  position: absolute;
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.30) 0%, rgba(249, 115, 22, 0.12) 70%, rgba(249, 115, 22, 0) 100%);
+  box-shadow: 0 0 24px rgba(249, 115, 22, 0.30);
+  animation: ringPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* Warm diffused aura ring */
+.as-mic-aura-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fef3c7 0%, rgba(253, 230, 138, 0.85) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+/* Core Orange Mic Button */
+.as-mic-core-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgb(245, 158, 11) 0%, rgb(234, 88, 12) 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.30);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  z-index: 3;
+}
+
+.as-mic-core-btn:active {
+  transform: scale(0.93);
+}
+
+/* --------------------------------------------------------------------------
+   ANIMATED ACOUSTIC WAVEFORM BARS
+   -------------------------------------------------------------------------- */
+.as-waveform-equalizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 30px;
+  margin: 0 auto 8px auto;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+.aura-bar {
+  width: 5px;
+  border-radius: 9999px;
+  display: inline-block;
+  animation: auraWave 1.2s ease-in-out infinite;
+}
+
+@keyframes auraWave {
+  0%, 100% {
+    height: 6px;
+    opacity: 0.5;
+  }
+  50% {
+    height: 26px;
+    opacity: 1;
+  }
+}
+
+/* Staggered timing & exact colors for realistic speech modulation */
+.bar-1 {
+  background-color: #6b4f2c; /* rgb(107, 79, 44) - Deep warm bronze / umber */
+  height: 8px;
+  animation-delay: 0.15s;
+}
+.bar-2 {
+  background-color: #f59e0b; /* rgb(245, 158, 11) - Amber 500 (Vibrant warm gold) */
+  height: 18px;
+  animation-delay: 0.35s;
+}
+.bar-3 {
+  background-color: #b45309; /* rgb(180, 83, 9) - Amber 700 (Rich terracotta) */
+  height: 26px;
+  animation-delay: 0.05s;
+}
+.bar-4 {
+  background-color: #78350f; /* rgb(120, 53, 15) - Amber 900 (Espresso amber / Peak) */
+  height: 22px;
+  animation-delay: 0.45s;
+}
+.bar-5 {
+  background-color: #f59e0b; /* rgb(245, 158, 11) - Amber 500 (Vibrant warm gold) */
+  height: 26px;
+  animation-delay: 0.20s;
+}
+.bar-6 {
+  background-color: #d97706; /* rgb(217, 119, 6) - Amber 600 (Burnt amber) */
+  height: 16px;
+  animation-delay: 0.50s;
+}
+.bar-7 {
+  background-color: #6b4f2c; /* rgb(107, 79, 44) - Deep warm bronze / umber */
+  height: 8px;
+  animation-delay: 0.10s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aura-bar,
+  .as-mic-radar-ripple,
+  .as-mic-glow-ring {
+    animation: none !important;
+  }
+}
+
+/* Prompt Hint */
+.as-spoken-hint {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin: 0 0 14px 0;
+  flex-shrink: 0;
+}
+
+.as-spoken-hint b {
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   ACTION BUTTONS ROW (Guaranteed Fit Across All Screen Sizes, No Scroll)
+   -------------------------------------------------------------------------- */
+.as-sheet-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.as-btn-type-instead {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+
+.as-btn-type-instead:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.as-btn-cancel-voice {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: background 0.15s ease;
+}
+
+.as-btn-cancel-voice:hover {
+  background: #e2e8f0;
+}
+
+.as-btn-done-voice {
+  flex: 1;
+  min-width: 0;
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(15, 17, 26, 0.22);
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.as-btn-done-voice:hover {
+  background: #1e2230;
+}
+
+.as-btn-done-voice:active {
+  transform: scale(0.98);
+}
+
+.as-done-check-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #0f111a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Extra safety for very narrow screens (<= 360px) */
+@media (max-width: 360px) {
+  .as-voice-sheet {
+    padding: 10px 10px 16px;
+  }
+  .as-sheet-actions-row {
+    gap: 4px;
+  }
+  .as-btn-type-instead {
+    padding: 8px 8px;
+    font-size: 11px;
+    gap: 3px;
+  }
+  .as-btn-cancel-voice {
+    padding: 8px 8px;
+    font-size: 11px;
+  }
+  .as-btn-done-voice {
+    padding: 8px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+  .as-done-check-icon {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+  }
+}
+
+/* Footer Tag */
+.as-sheet-footer-brand {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin: 0;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.as-voice-state-box {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+}
+
+/* ==========================================================================
+   CONFIRMATION / EXPENSE REVIEW CARD (Matches Picture 1 Desktop & Picture 2 Mobile)
+   ========================================================================== */
+
+/* Global Box Sizing Safety */
+.as-voice-sheet,
+.as-voice-sheet * {
+  box-sizing: border-box !important;
+}
+
+.as-review-expense-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.as-sheet-review-result {
+  max-width: 660px !important;
+  width: 100% !important;
+  border-radius: 28px !important;
+  padding: 24px 28px !important;
+  max-height: 92vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 699px) {
+  .as-sheet-review-result {
+    width: 100% !important;
+    max-width: 100vw !important;
+    border-radius: 28px 28px 0 0 !important;
+    padding: 14px 14px 20px !important;
+    max-height: 94vh !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Desktop vs Mobile Toggle */
+.as-desktop-only {
+  display: block;
+}
+.as-mobile-only {
+  display: none;
+}
+
+@media (max-width: 699px) {
+  .as-desktop-only {
+    display: none !important;
+  }
+  .as-mobile-only {
+    display: block !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Review Header
+   -------------------------------------------------------------------------- */
+.as-review-header-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.as-review-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-review-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  flex-shrink: 0;
+}
+
+.as-review-heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.as-review-lang-pill {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 3px 8px;
+  letter-spacing: 0.05em;
+}
+
+.as-review-subheading {
+  font-size: 12px;
+  color: #64748b;
+  margin: 3px 0 0 0;
+}
+
+.as-review-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s ease;
+}
+
+.as-review-close-btn:hover {
+  background: #e2e8f0;
+}
+
+/* Mobile Header */
+.as-review-header-mobile {
+  margin-bottom: 14px;
+}
+
+.as-review-top-row-mob {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.as-review-icon-circle-mob {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.as-badge-hinglish-mob {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Recognized Utterance Card
+   -------------------------------------------------------------------------- */
+.as-review-utterance-box {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.as-utterance-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.as-utterance-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-utterance-readback-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: background 0.15s ease;
+}
+
+.as-utterance-readback-btn:hover {
+  background: #f8fafc;
+}
+
+.as-readback-time {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.as-utterance-quote-text {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.as-quote-mark {
+  color: #b45309;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 2px;
+}
+
+.as-utterance-waveform-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-utterance-mini-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+}
+
+.as-utterance-mini-bars span {
+  width: 3.5px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.as-voice-capture-tag {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Controls Form Grid (Desktop: 3 cols, Mobile: 2 rows)
+   -------------------------------------------------------------------------- */
+.as-controls-grid-desktop {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.as-ctrl-card {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.as-ctrl-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.as-ctrl-select {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.as-amount-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.as-rupee-symbol {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-amount-input {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  padding: 0;
+  outline: none;
+  width: 100%;
+}
+
+.as-distribution-toggle {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.as-dist-pill {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-dist-pill.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile Controls */
+.as-controls-grid-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.as-mob-ctrl-row-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.as-mob-payer-card {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.as-mob-payer-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-mob-payer-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.as-mob-amount-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-mob-split-toggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.as-mob-split-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 9999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.as-mob-split-btn.active {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   Unrecognized Member Detected Banner
+   -------------------------------------------------------------------------- */
+.as-unrec-banner {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.as-unrec-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.as-unrec-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ea580c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.as-unrec-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #7c2d12;
+}
+
+.as-unrec-sub {
+  font-size: 11.5px;
+  color: #9a3412;
+  margin-top: 1px;
+}
+
+.as-unrec-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .as-unrec-actions {
+    width: auto;
+  }
+}
+
+.as-unrec-select {
+  background: #ffffff;
+  border: 1px solid #fed7aa;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #7c2d12;
+  outline: none;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.as-unrec-add-btn {
+  background: #b45309;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.as-unrec-add-btn:hover {
+  background: #92400e;
+}
+
+/* --------------------------------------------------------------------------
+   Calculation Breakdown List
+   -------------------------------------------------------------------------- */
+.as-breakdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-breakdown-share-highlight {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.as-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.as-calc-row {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.15s ease;
+}
+
+.as-calc-row:hover {
+  background: #f8fafc;
+}
+
+.as-calc-member-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-calc-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.as-calc-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-calc-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-badge-paid {
+  background: #ffedd5;
+  color: #c2410c;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 2px 7px;
+}
+
+.as-badge-new-member {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 2px 7px;
+}
+
+.as-badge-new-mob {
+  background: #ffedd5;
+  color: #c2410c;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 2px 6px;
+}
+
+.as-calc-status-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.as-calc-payer-sub {
+  font-size: 11px;
+  color: #b45309;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.as-calc-amount-col {
+  text-align: right;
+}
+
+.as-calc-amount {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-calc-owning-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.as-calc-exact-input {
+  width: 80px;
+  text-align: right;
+  padding: 6px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #ffffff;
+}
+
+.as-total-bill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4px 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #334155;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.as-total-bill-amount {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   Action Footers (Desktop & Mobile)
+   -------------------------------------------------------------------------- */
+.as-review-footer-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.as-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-btn-rerecord {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.as-btn-rerecord:hover {
+  background: #f8fafc;
+}
+
+.as-btn-cancel-plain {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 12px;
+}
+
+.as-btn-cancel-plain:hover {
+  color: #0f172a;
+}
+
+.as-btn-confirm-expense {
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(15, 17, 26, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.as-btn-confirm-expense:hover {
+  background: #1e2230;
+}
+
+.as-btn-confirm-expense:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Bottom Action Footer (Cancel, Mic, Confirm) */
+.as-review-footer-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.as-btn-cancel-mob {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.as-btn-cancel-mob:hover {
+  background: #e2e8f0;
+}
+
+.as-btn-mic-circle-mob {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.as-btn-mic-circle-mob:hover {
+  background: #e2e8f0;
+}
+
+.as-btn-confirm-mob {
+  flex: 1;
+  min-width: 0;
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(15, 17, 26, 0.25);
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.as-btn-confirm-mob:hover {
+  background: #1e2230;
+}
+
+.as-btn-confirm-mob:active {
+  transform: scale(0.98);
+}
+
+.as-btn-confirm-mob:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.as-check-circle-mob {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   VoiceSheet - Processing State (Concentric Rotating Orb & Spectrum Equalizer)
+   Matches Voice Sheet - Mobile Processing State
+   ========================================================================== */
+
+.as-processing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0 8px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 1. Central Processing Visual */
+.as-proc-visual-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  margin: 6px auto 16px auto;
+}
+
+/* Outermost Soft Aura Glow */
+.as-proc-soft-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 215, 170, 0.6) 0%, rgba(251, 146, 60, 0.35) 100%);
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+  animation: procPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes procPulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.05);
+  }
+}
+
+/* Outer Static Halo Ring */
+.as-proc-static-halo {
+  position: absolute;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  border: 1px solid rgba(254, 215, 170, 0.55);
+  background: linear-gradient(180deg, rgba(255, 251, 235, 0.85) 0%, rgba(255, 237, 213, 0.35) 100%);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Middle Concentric Ring */
+.as-proc-middle-ring {
+  position: absolute;
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  border: 1px solid rgba(254, 215, 170, 0.65);
+  background: rgba(254, 243, 199, 0.32);
+}
+
+/* Rotating Glowing Orbital Arc Ring */
+.as-proc-orbital-arc {
+  position: absolute;
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  border-top-color: #f59e0b;
+  border-right-color: #ea580c;
+  animation: spinSmooth 2s linear infinite;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.35);
+}
+
+@keyframes spinSmooth {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-smooth {
+  animation: spinSmooth 2s linear infinite;
+}
+
+/* Deep Navy Core Orb */
+.as-proc-core-orb {
+  position: relative;
+  z-index: 10;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #251f36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  border: 4px solid rgba(255, 255, 255, 0.85);
+}
+
+/* Inner Waveform Icon Bars inside the Dark Core */
+.as-proc-inner-waves {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 32px;
+}
+
+.core-wave {
+  width: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 9999px;
+  display: inline-block;
+  animation: corePulse 1s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    height: 8px;
+    opacity: 0.6;
+  }
+  50% {
+    height: 22px;
+    opacity: 1;
+  }
+}
+
+.cw-1 { height: 8px; animation-delay: 0.2s; opacity: 0.7; }
+.cw-2 { height: 16px; animation-delay: 0.4s; opacity: 0.9; }
+.cw-3 { height: 24px; animation-delay: 0.1s; opacity: 1; }
+.cw-4 { height: 14px; animation-delay: 0.3s; opacity: 0.9; }
+.cw-5 { height: 8px; animation-delay: 0.5s; opacity: 0.7; }
+
+/* Status Text */
+.as-proc-heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.as-proc-subheading {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  margin: 0 0 18px 0;
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+/* 2. Animated Spectrum Waveform Below Text */
+.as-proc-spectrum-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  margin: 0 auto 20px auto;
+}
+
+.spec-bar {
+  width: 5px;
+  border-radius: 9999px;
+  display: inline-block;
+  animation: spectrumBounce 1.1s ease-in-out infinite;
+}
+
+@keyframes spectrumBounce {
+  0%, 100% {
+    height: 6px;
+    transform: scaleY(0.6);
+    opacity: 0.7;
+  }
+  50% {
+    height: 26px;
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.sb-1 { height: 12px; animation-delay: 0.15s; background-color: #d97706; }
+.sb-2 { height: 22px; animation-delay: 0.35s; background-color: #1e1b4b; }
+.sb-3 { height: 26px; animation-delay: 0.05s; background-color: #ea580c; }
+.sb-4 { height: 18px; animation-delay: 0.45s; background-color: #f59e0b; }
+.sb-5 { height: 24px; animation-delay: 0.25s; background-color: #1e1b4b; }
+.sb-6 { height: 14px; animation-delay: 0.50s; background-color: #d97706; }
+.sb-7 { height: 10px; animation-delay: 0.10s; background-color: #ea580c; }
+
+/* Cancel Button in Processing State */
+.as-btn-proc-cancel {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s ease;
+  box-sizing: border-box;
+}
+
+.as-btn-proc-cancel:hover {
+  background: #e2e8f0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-smooth,
+  .core-wave,
+  .spec-bar,
+  .as-proc-soft-glow {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,653 @@
+/* ==========================================================================
+   CreateGroupMobile.css - Responsive Mobile "Create Group" View
+   ========================================================================== */
+
+.as-cgm-mob-overlay {
+  position: fixed;
+  inset: 0;
+  background: #f8fafc;
+  z-index: 1300;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  animation: asCgmSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes asCgmSlideIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.as-cgm-mob-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 100px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 1. Mobile Top Navigation Bar */
+.as-cgm-mob-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2px;
+}
+
+.as-cgm-mob-back-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: background 0.15s ease;
+}
+
+.as-cgm-mob-back-btn:hover {
+  background: #f1f5f9;
+}
+
+.as-cgm-mob-title {
+  font-size: 17.5px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.as-cgm-mob-user-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #0f111a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* 2. Badges Header Row */
+.as-cgm-mob-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.as-cgm-mob-pool-tag {
+  background: #fef3c7;
+  color: #9a3412;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.as-cgm-mob-instant-active-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* 3. Base Card Style */
+.as-cgm-mob-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+}
+
+/* Group Name Card */
+.as-cgm-mob-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-cgm-mob-emoji-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15);
+}
+
+.as-cgm-mob-name-inputs {
+  flex: 1;
+  min-width: 0;
+}
+
+.as-cgm-mob-field-lbl {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.as-cgm-mob-text-input {
+  width: 100%;
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-mob-text-input:focus {
+  background: #ffffff;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+/* 4. Two-Column Dropdowns: Currency & Expense Category (as Desktop) */
+.as-cgm-mob-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 360px) {
+  .as-cgm-mob-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.as-cgm-mob-select-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-width: 0;
+}
+
+.as-cgm-mob-select-card:hover {
+  border-color: #fed7aa;
+}
+
+.as-cgm-mob-select-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.as-cgm-mob-select-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.as-cgm-mob-select-icon.curr {
+  background: #0f111a;
+  color: #ffffff;
+}
+
+.as-cgm-mob-select-icon.cat {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.as-cgm-mob-caret {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.as-cgm-mob-select-lbl {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.as-cgm-mob-select-val {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-cgm-mob-native-select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* 5. Members Section Card */
+.as-cgm-mob-members-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.as-cgm-mob-members-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-cgm-mob-members-heading {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.as-cgm-mob-count-badge {
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 2px 8px;
+}
+
+.as-cgm-mob-instant-tag {
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Members Add Bar */
+.as-cgm-mob-add-bar {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 14px;
+  padding: 4px 6px 4px 12px;
+  margin-bottom: 14px;
+  transition: all 0.15s ease;
+}
+
+.as-cgm-mob-add-bar:focus-within {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+.as-cgm-mob-add-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: #0f172a;
+  padding: 8px 6px;
+}
+
+.as-cgm-mob-add-btn {
+  background: #f59e0b;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.25);
+  transition: background 0.15s ease;
+}
+
+.as-cgm-mob-add-btn:hover {
+  background: #d97706;
+}
+
+.as-cgm-mob-active-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* Active Chips */
+.as-cgm-mob-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.as-cgm-mob-chip-you {
+  background: #0f111a;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 6px 12px 6px 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.as-cgm-mob-chip-you-dot {
+  color: #f59e0b;
+  font-size: 10px;
+}
+
+.as-cgm-mob-chip-member {
+  border-radius: 9999px;
+  padding: 6px 10px 6px 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  flex-shrink: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.as-cgm-mob-chip-member.peach {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.as-cgm-mob-chip-member.purple {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+.as-cgm-mob-chip-member.blue {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.as-cgm-mob-chip-member.gray {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.as-cgm-mob-avatar-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.as-cgm-mob-chip-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 130px;
+}
+
+.as-cgm-mob-chip-del {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 3px;
+  font-size: 13px;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-cgm-mob-chip-del:hover {
+  opacity: 1;
+}
+
+/* 6. Invite Link Access Card (Responsive, no text collision) */
+.as-cgm-mob-invite-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.as-cgm-mob-invite-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.as-cgm-mob-invite-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.as-cgm-mob-invite-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #b45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.as-cgm-mob-invite-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-cgm-mob-invite-sub {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+/* Bottom URL & Copy Bar within Invite Card */
+.as-cgm-mob-invite-url-row {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 6px 8px 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.as-cgm-mob-invite-url {
+  font-size: 11.5px;
+  color: #475569;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+.as-cgm-mob-btn-copy {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+}
+
+.as-cgm-mob-btn-copy:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+/* Toggle Switch */
+.as-cgm-mob-toggle {
+  width: 38px;
+  height: 22px;
+  background: #f59e0b;
+  border-radius: 9999px;
+  padding: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s ease;
+  border: none;
+  flex-shrink: 0;
+}
+
+.as-cgm-mob-toggle.off {
+  background: #cbd5e1;
+}
+
+.as-cgm-mob-toggle-knob {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  transform: translateX(16px);
+}
+
+.as-cgm-mob-toggle.off .as-cgm-mob-toggle-knob {
+  transform: translateX(0);
+}
+
+/* 7. Bottom Fixed Action Row (Responsive & Centered) */
+.as-cgm-mob-bottom-actions-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1350;
+  display: flex;
+  justify-content: center;
+}
+
+.as-cgm-mob-bottom-actions {
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 16px max(14px, env(safe-area-inset-bottom, 14px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.as-cgm-mob-btn-cancel {
+  background: #f1f5f9;
+  color: #334155;
+  border: none;
+  border-radius: 9999px;
+  padding: 13px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.as-cgm-mob-btn-cancel:hover {
+  background: #e2e8f0;
+}
+
+.as-cgm-mob-btn-create {
+  flex: 1;
+  min-width: 0;
+  background: #191632;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 13px 20px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(25, 22, 50, 0.3);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.as-cgm-mob-btn-create:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.as-cgm-mob-btn-create:active:not(:disabled) {
+  transform: scale(0.98);
+}

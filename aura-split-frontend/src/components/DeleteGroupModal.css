@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Aura Split - Delete Group Confirmation Modal Styles
+   ========================================================================== */
+
+.as-del-grp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+  animation: asDelGrpFadeIn 0.18s ease-out;
+}
+
+@keyframes asDelGrpFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.as-del-grp-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #edf1f7;
+  box-shadow: 0 24px 50px -12px rgba(15, 23, 42, 0.25), 0 0 1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  padding: 26px 28px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: asDelGrpScaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes asDelGrpScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.as-del-grp-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.as-del-grp-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.as-del-grp-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-del-grp-close-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.as-del-grp-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.as-del-grp-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.as-del-grp-desc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Group preview callout */
+.as-del-grp-preview-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.as-del-grp-preview-name {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-del-grp-preview-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.as-del-grp-preview-badge {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* Danger Alert banner */
+.as-del-grp-warning-banner {
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #b91c1c;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Actions */
+.as-del-grp-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.as-del-grp-btn-cancel {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex: 1;
+}
+
+.as-del-grp-btn-cancel:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.as-del-grp-btn-confirm {
+  background: #dc2626;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.28);
+  flex: 1.3;
+}
+
+.as-del-grp-btn-confirm:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.as-del-grp-btn-confirm:disabled,
+.as-del-grp-btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+

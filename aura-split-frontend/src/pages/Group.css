@@ -1,0 +1,929 @@
+/* ==========================================================================
+   Group.css - Desktop Group Expenses & Balances View (Matches Pictures 1 & 3)
+   ========================================================================== */
+
+.as-grp-desktop-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 36px 80px 36px;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow-y: auto;
+  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  background-color: #f7f9fc;
+}
+
+.as-grp-back-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.as-grp-back-circle:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateX(-1px);
+}
+
+.as-grp-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.as-grp-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Top Navigation Bar */
+.as-grp-topbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-grp-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.as-grp-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.as-grp-brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0f111a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-grp-brand-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.as-grp-switcher-pill {
+  background: #f1f5f9;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+/* Center Nav Pills in Topbar */
+.as-grp-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-grp-nav-pill {
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: 7px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-grp-nav-pill:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.as-grp-nav-pill.active {
+  background: #191632;
+  color: #ffffff;
+}
+
+/* Topbar User Profile */
+.as-grp-topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.as-grp-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.as-grp-user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0f111a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Main Content Area */
+.as-grp-main-wrap {
+  flex: 1;
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 24px 80px 24px;
+  box-sizing: border-box;
+}
+
+/* Group Header Row */
+.as-grp-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.as-grp-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.15s ease;
+}
+
+.as-grp-back-link:hover {
+  background: #f1f5f9;
+}
+
+.as-grp-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.as-grp-members-badge {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 3px 10px;
+}
+
+/* Sub-Tabs Row */
+.as-grp-subtabs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.as-grp-subtabs-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-grp-subtab-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.15s ease;
+}
+
+.as-grp-subtab-btn:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.as-grp-subtab-btn.active {
+  background: #191632;
+  color: #ffffff;
+  border-color: #191632;
+  box-shadow: 0 4px 12px rgba(25, 22, 50, 0.2);
+}
+
+.as-grp-subtab-btn.active .as-grp-tab-counter {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.as-grp-tab-counter {
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 11px;
+  border-radius: 9999px;
+  padding: 2px 7px;
+}
+
+.as-grp-voice-sync-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #b45309;
+}
+
+.as-grp-yellow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+}
+
+/* ==========================================================================
+   Expenses Tab List Styles (Matches Picture 1)
+   ========================================================================== */
+
+.as-grp-expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.as-grp-expense-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.as-grp-expense-card:hover {
+  border-color: #cbd5e1;
+}
+
+.as-grp-expense-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.as-grp-expense-icon-square {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.as-grp-expense-icon-square.dark {
+  background: #191632;
+  color: #ffffff;
+}
+
+.as-grp-expense-icon-square.light {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.as-grp-expense-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-grp-expense-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-grp-voice-tag {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.as-grp-expense-sub {
+  font-size: 12.5px;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+.as-grp-expense-right-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.as-grp-expense-right {
+  text-align: right;
+}
+
+.as-grp-expense-delete-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.as-grp-expense-card:hover .as-grp-expense-delete-btn {
+  opacity: 1;
+}
+
+.as-grp-expense-delete-btn:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #dc2626;
+  transform: scale(1.06);
+}
+
+/* Danger Zone for Members Tab */
+.as-grp-danger-zone {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.as-grp-danger-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.as-grp-danger-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #dc2626;
+}
+
+.as-grp-danger-desc {
+  font-size: 12.5px;
+  color: #64748b;
+}
+
+.as-grp-btn-delete-group {
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.as-grp-btn-delete-group:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.as-grp-expense-amount {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-grp-expense-share-get {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #16a34a;
+  margin-top: 2px;
+}
+
+.as-grp-expense-share-owe {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #dc2626;
+  margin-top: 2px;
+}
+
+/* Settled Payment Card */
+.as-grp-settled-card {
+  background: #f0fdf4;
+  border: 1px solid #dcfce7;
+  border-radius: 18px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-grp-settled-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.as-grp-settled-check-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.as-grp-settled-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-grp-settled-pill {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.as-grp-settled-time {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Natural Voice Hint Banner */
+.as-grp-voice-hint-card {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.05);
+}
+
+.as-grp-hint-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.as-grp-hint-sound-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fef3c7;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.as-grp-hint-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #b45309;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.as-grp-hint-desc {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 2px;
+}
+
+.as-grp-btn-try-prompt {
+  background: #0f111a;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(15, 17, 26, 0.2);
+  transition: background 0.15s ease;
+}
+
+.as-grp-btn-try-prompt:hover {
+  background: #1e2230;
+}
+
+/* ==========================================================================
+   Balances Tab Styles (Matches Picture 3)
+   ========================================================================== */
+
+.as-grp-balances-banner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.as-grp-bal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.as-grp-bal-banner-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-grp-bal-minimized-pill {
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.as-grp-bal-banner-sub {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.as-grp-bal-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.as-grp-btn-read-aloud {
+  background: #f59e0b;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: background 0.15s ease;
+}
+
+.as-grp-btn-read-aloud:hover {
+  background: #d97706;
+}
+
+.as-grp-read-aloud-sub {
+  font-size: 11px;
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+/* Two Columns Balances Layout */
+.as-grp-bal-columns {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.as-grp-bal-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.as-grp-col-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.as-grp-col-heading {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.as-grp-col-dot {
+  color: #d97706;
+}
+
+.as-grp-col-badge {
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.as-grp-ledger-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Left Card: Who Owes Whom List */
+.as-grp-card-block {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.as-grp-transfer-row {
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.as-grp-transfer-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.as-grp-avatar-pill-pair {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-grp-member-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.as-grp-member-badge.dark {
+  background: #191632;
+  color: #ffffff;
+}
+
+.as-grp-arrow {
+  color: #f59e0b;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.as-grp-transfer-amount {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.as-grp-consolidated-note {
+  font-size: 11px;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* Right Card: Your Balances Rows */
+.as-grp-your-balance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.as-grp-your-balance-row:last-child {
+  border-bottom: none;
+}
+
+.as-grp-your-bal-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.as-grp-your-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.as-grp-your-sub {
+  font-size: 11.5px;
+  margin-top: 1px;
+}
+
+.as-grp-your-sub.green {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.as-grp-your-sub.red {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.as-grp-your-sub.gray {
+  color: #64748b;
+}
+
+.as-grp-btn-settle-pill {
+  background: #191632;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.as-grp-btn-settle-pill:hover {
+  background: #2b274c;
+}
+
+.as-grp-settled-check-pill {
+  background: #f1f5f9;
+  color: #15803d;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Settlement Fully Cleared Banner (Condition matching user prompt) */
+.as-grp-all-cleared-banner {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.as-grp-all-cleared-banner span.sparkle {
+  color: #f59e0b;
+}
+
+/* Bottom Page Footer */
+.as-grp-footer {
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Floating Core Mic Button (Bottom Right) */
+.as-grp-floating-mic {
+  position: fixed;
+  bottom: 28px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #0f111a;
+  color: #f59e0b;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 99;
+}
+
+.as-grp-floating-mic:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+}
+
+.as-grp-floating-mic:active {
+  transform: scale(0.96);
+}
+
